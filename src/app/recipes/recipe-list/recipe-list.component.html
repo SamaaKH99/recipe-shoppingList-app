@@ -1,0 +1,28 @@
+<br><br>
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-danger">New recipe</button>
+    </div>
+</div>
+<br><br>
+
+<div class="container">
+    <div class="row mb-3">
+
+        <!-- A for loop to loop on the array of recipes -->
+        <div class="col-md-4" *ngFor="let recipe of recipes">
+            <div class="card">
+                <img [src]="recipe.imagePath" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{recipe.name}}</h5>
+                    <p class="card-text">{{recipe.description}}</p>
+                    <p class="card-text"><small class="text-muted">
+                        <app-recipe-item></app-recipe-item></small>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

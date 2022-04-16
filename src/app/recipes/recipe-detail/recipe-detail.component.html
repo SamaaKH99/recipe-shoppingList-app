@@ -1,7 +1,8 @@
 <br>
 <hr>
 <br>
-<div class="card">
+<br>
+<div class="card" [id]="details" #detailsdiv>
     <div class="card-header">
         
         <h6>Recipe Details</h6>
@@ -20,13 +21,9 @@
 
     </div>
     <div class="card-body">
-      <h4 class="card-title">Recipe Name</h4>
-      <img [src]="" class="card-img-top" alt="">
-      <p class="card-text">Details</p>
-      <p class="card-text"><small class="text-muted">
-          Ingredients
-        <app-recipe-item></app-recipe-item></small>
-    </p>
+      <h4 class="card-title">{{recipe.name}}</h4>
+      <img [src]="recipe.imagePath" class="card-img-top" style="width: 300px;" alt="{{recipe.name}}">
+      <p class="card-text">{{recipe.description}}</p>
     </div>
   </div>
 <br>

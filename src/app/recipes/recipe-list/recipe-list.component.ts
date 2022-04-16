@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -7,6 +7,12 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
+
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+
+  @Output() recipeWasSelectedDetails = new EventEmitter<string>();
+  //isShown: boolean = true ; // hidden by default
+
   // array of recipes of type Recipe model (array of Recipe model props)
   recipes: Recipe[] = [
     new Recipe('Mexican Chicken Burger', 
@@ -28,7 +34,22 @@ export class RecipeListComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+
+  onRecipeSelected(recipe: Recipe){
+    this.recipeWasSelected.emit(recipe);
+  }
+
+
+  onRecipeSelectedDetails(details: string){
+    this.recipeWasSelectedDetails.emit(details);
+  }
+
+
+  // toggleShow() {
+
+  //   this.isShown = ! this.isShown;
+  // }
 
 }

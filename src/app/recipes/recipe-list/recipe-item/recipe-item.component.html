@@ -1,1 +1,32 @@
-<p>recipe-item works!</p>
+        
+        <!-- A for loop to loop on the array of recipes -->
+        <!-- <div class="row mb-4">
+            <div class="col-md-5">
+                <div class="card">
+                    <img [src]="recipe.imagePath" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{recipe.name}}</h5>
+                        <p class="card-text">{{recipe.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="row mb-4">
+        <div class="row no-gutters bg-light position-relative" style="border-radius: 2rem;">
+            <div class="col-md-4 mb-md-0 p-md-4">
+              <img [src]="recipe.imagePath" class="card-img" style="height: 300px; border-radius: 2rem;" alt="{{recipe.name}}">
+            </div>
+            <div class="col-md-6 p-4 pl-md-0">
+              <h3 class="mt-0 fw-bold" >{{recipe.name}}</h3>
+              <p>{{recipe.description}}</p>
+              <br><a href="#" class="btn btn-danger" (click)="onSelected(); toDetails()">Details</a>
+              <!-- <button (click)="toDetails()" >todetails</button> -->
+            </div>
+          </div>
+        </div>
+        
+
+
+        <!-- (click)="goToBottom() -->

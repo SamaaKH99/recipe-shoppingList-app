@@ -5,15 +5,15 @@
         <form>
             <div class="form-row align-items-center">
               <div class="col-sm-4 my-1">
-                <input type="text" class="form-control" id="name" placeholder="Ingredient name">
+                <input type="text" class="form-control" id="name" placeholder="Ingredient name" #nameInput>
               </div>
 
               <div class="col-sm-2 my-1">
-                <input type="number" class="form-control" id="amount" placeholder="amount">
+                <input type="number" class="form-control" id="amount" placeholder="amount" #amountInput>
               </div>
 
               <div class="col-auto my-1">
-                <button type="submit" class="btn btn-success">Add</button>
+                <button type="submit" class="btn btn-success" (click)="onAddItem()">Add</button>
               </div>
 
               <div class="col-auto my-1">

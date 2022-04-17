@@ -7,16 +7,16 @@
         
         <h6>Recipe Details</h6>
 
-        <div class="text-light position-absolute" style="top:0.1rem; right: 0.5rem">
-            <a class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+        <div class="text-light position-absolute" style="top:0.1rem; right: 1.5rem" >
+            <a class="btn btn-danger"><i class="bi bi-trash-fill"></i> Delete</a>
         </div>
 
-        <div class="text-light position-absolute" style="top: 0.1rem; right: 3.5rem">
-            <a class="btn btn-secondary"><i class="bi bi-pencil-square"></i></a>
+        <div class="text-light position-absolute" style="top: 0.1rem; right: 7.6rem">
+            <a class="btn btn-secondary"><i class="bi bi-pencil-square"></i> Edit</a>
         </div>
 
-        <div class="text-light position-absolute" style="top:0.1rem; right: 6.5rem">
-            <a class="btn btn-primary"><i class="bi bi-cart4"></i></a>
+        <div class="text-light position-absolute" style="top:0.1rem; right: 12.5rem">
+            <a class="btn btn-primary" (click)="onAddToShoppingList()"><i class="bi bi-cart4"></i> Add</a>
         </div>
 
     </div>
@@ -24,6 +24,15 @@
       <h4 class="card-title">{{recipe.name}}</h4>
       <img [src]="recipe.imagePath" class="card-img-top" style="width: 300px;" alt="{{recipe.name}}">
       <p class="card-text">{{recipe.description}}</p>
+      <ul class="row">
+          <div class="col-xs-12">
+            <div class="list-group">
+                <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+                    {{ingredient.name}} - {{ingredient.amount}}
+                </li>
+            </div>
+          </div>
+      </ul>
     </div>
   </div>
 <br>

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { RecipeService } from 'src/app/recipe.service';
 import { Recipe } from '../../recipe.model';
 
 @Component({
@@ -7,24 +8,16 @@ import { Recipe } from '../../recipe.model';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  //Takes input from the recipe model and recipe array
   @Input() recipe!: Recipe;
-  // Output so we can listen to this event from outside the component
-  @Output() recipeSelected = new EventEmitter<void>();
-  constructor() { }
 
-  @Output() recipeSelectedDetails = new EventEmitter<void>();
+  constructor(private recipeService: RecipeService) { }
+
   toDetails(){
-    //window.scrollTo(0,document.body.scrollHeight);
     window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
-    //this.recipeSelectedDetails.emit();
-    //document.getElementById('details')?.scrollIntoView();
   }
 
-
-
   onSelected(){
-    this.recipeSelected.emit();
+    this.recipeService.recipeSelected.emit(this.recipe);
   }
 
   ngOnInit(){
